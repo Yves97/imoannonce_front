@@ -21,9 +21,10 @@ const Announcement = () => {
                                                 <h1 className="intro-title mb-4">
                                                     <span className="color-b">Decouvrez les annonces</span>
                                                 </h1>
-                                                <p className="intro-subtitle intro-price">
-                                                <a href="#"><span className="price-a">Commencer</span></a>
-                                                </p>
+                                                <i className="fa fa-arrow-down"></i>
+                                                {/* <p className="intro-subtitle intro-price">
+                                                    <a href="#"><span className="price-a">Commencer</span></a>
+                                                </p> */}
                                             </div>
                                         </div>
                                     </div>

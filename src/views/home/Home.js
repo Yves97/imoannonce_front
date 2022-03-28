@@ -1,5 +1,6 @@
 import React from 'react'
 import { Header } from '../../components/Header'
+import { Link } from 'react-router-dom'
 //images
 import Slide1 from '../../assets/images/slide-1.jpg'
 import Slide2 from '../../assets/images/slide-2.jpg'
@@ -23,7 +24,7 @@ const Home  = () => {
                                                 <span className="color-b">Bienvenu(e)</span>
                                                 <br/> Suivez les annonces</h1>
                                                 <p className="intro-subtitle intro-price">
-                                                <a href="#"><span className="price-a">Commencer</span></a>
+                                                <Link to="/announcement"><span className="price-a">Commencer</span></Link>
                                                 </p>
                                             </div>
                                         </div>
