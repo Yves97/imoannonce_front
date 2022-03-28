@@ -21,6 +21,9 @@ export const Header = () => {
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/announcement" style={({ isActive }) => (isActive ? {color: '#2eca6a'} : {color: '#000'})}>Annonces</NavLink>
                     </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/dashboard" style={({ isActive }) => (isActive ? {color: '#2eca6a'} : {color: '#000'})}>Dashboard</NavLink>
+                    </li>
                 </ul>
             </div>
             </div>

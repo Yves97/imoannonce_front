@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 const Login = () => {
     return (
         <div>
-            <p>aqwqwf</p>
+            <p>Login</p>
         </div>
     )
 }
