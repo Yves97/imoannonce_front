@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Home from "./views/home/Home";

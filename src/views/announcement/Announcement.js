@@ -15,9 +15,9 @@ const Announcement = () => {
             try {
                 setLoading(true)
                 const response = await getAnnouncements()
-                console.log(response)
                 if(response.ok){
                     const data = await response.json()
+                    console.log(data)
                     setAnnouncements(data.announcements)
                     setLoading(false)
                 }else{
@@ -37,7 +37,7 @@ const Announcement = () => {
             return <React.Fragment>
                 {announcements.map((item,index)=>{
                     return <div className="col-md-4 mb-5" key={index}>
-                    <Link to='/announcement/1'>
+                    <Link to={`/announcement/${item.id}`}>
                         <div className="card-box-b card-shadow news-box">
                             <div className="img-box-b">
                                 <img src={Slide1} alt="" className="img-b img-fluid"/>
