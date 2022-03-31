@@ -1,15 +1,6 @@
-/*
-  Theme Name: EstateAgency
-  Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-  Author: BootstrapMade.com
-  License: https://bootstrapmade.com/license/
-*/
-
 /*======================================
 //--//-->   STYLES GENERALES
 ======================================*/
-
-
 
 
 body {
@@ -109,16 +100,11 @@ a:hover {
   margin: 0;
 }
 
-
-/*======================================
-//--//-->   FOR ME
-======================================*/
 .responsive-table li {
   border-radius: 3px;
   padding: 25px 30px;
   display: flex;
   justify-content: space-between;
-  /* margin-bottom: 25px; */
 }
 .responsive-table .table-header {
   background-color: #95A5A6;
@@ -164,11 +150,6 @@ a:hover {
     text-align: right;
   }
 }
-
-
-/*======================================
-//--//-->   END FOR ME
-======================================*/
 
 /*------/ Nav Pills  /------*/
 

@@ -20,9 +20,6 @@ const Dashboard = () => {
                                                     <span className="color-b">Administration</span>
                                                 </h1>
                                                 <i className="fa fa-arrow-down"></i>
-                                                {/* <p className="intro-subtitle intro-price">
-                                                    <a href="#"><span className="price-a">Commencer</span></a>
-                                                </p> */}
                                             </div>
                                         </div>
                                     </div>
