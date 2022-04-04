@@ -3,19 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import {Provider} from 'react-redux'
-import { store } from './store';
+
 //css
 import './assets/css/bootstrap.min.css'
 import './assets/css/font-awesome.min.css'
 import './assets/css/ionicons.min.css'
 import './assets/css/style.css'
 ReactDOM.render(
-  <Provider store={store}>
     <BrowserRouter>
       <App />
-    </BrowserRouter>
-  </Provider>,
+    </BrowserRouter>,
   document.getElementById('root')
 );
 

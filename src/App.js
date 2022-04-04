@@ -1,13 +1,13 @@
 import React from 'react'
-import { Routes, Route,Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Routes, Route } from "react-router-dom";
 
 import Home from "./views/home/Home";
 import Announcement from "./views/announcement/Announcement";
 import Details from "./views/announcement/Details";
 import NotFound from "./views/notFound/notFound";
-import Login from "./views/login/Login";
 import Dashboard from "./views/dashboard/Dashboard";
+import UpdateAnnouncement from './views/dashboard/Update';
+import CreateAnnouncement from './views/dashboard/Create';
 
 
 function App() {
@@ -16,8 +16,9 @@ function App() {
         <Route path="/"  element={<Home />} />
         <Route path="/announcement" element={<Announcement />} />
         <Route path="/announcement/:id" element={<Details />} />
-        <Route path="/login" element={<Login/>} />
+        <Route path="/announcement/update/:id" element={<UpdateAnnouncement/>}/>
         <Route path="/dashboard"  element={<Dashboard/>} />
+        <Route path="/announcement/create" element={<CreateAnnouncement/>}/>
         <Route path="*" element={<NotFound />} /> 
     </Routes>
   );

@@ -2,21 +2,23 @@ import React, {useEffect,useState} from 'react'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import Slide1 from '../../assets/images/slide-1.jpg'
+import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import {getAnnouncement,getAnnouncements,deleteAnnonce} from '../../services/announcements'
+import {getAnnouncements,deleteAnnonce} from '../../services/announcements'
+import { baseUrl } from '../../config/base/baseUrl'
 
 const Dashboard = () => {
     const [loading,setLoading] = useState(false)
     const [announcements,setAnnouncements] = useState([])
+    const navigate = useNavigate()
 
-    useEffect(() =>{
+    useEffect(() => {
         async function announcement(){
             try {
                 setLoading(true)
                 const response = await getAnnouncements()
                 if(response.ok){
                     const data = await response.json()
-                    console.log(data)
                     setAnnouncements(data.announcements)
                     setLoading(false)
                 }else{
@@ -37,9 +39,9 @@ const Dashboard = () => {
             confirmButtonText: 'Oui',
             denyButtonText: `Non`,
           }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                deleteAnnonce(item.id).then((response)=>{
+                deleteAnnonce(item.id)
+                    .then((response)=>{
                     Swal.fire('Supprimé', '', 'success')  
                     window.location.reload();
                 }).catch((e)=>{ 
@@ -51,8 +53,9 @@ const Dashboard = () => {
             }
           })
     }
+    const updateItem = (item) => navigate(`/announcement/update/${item.id}`)
+    const createAnnouncement = (item) => navigate('/announcement/create')
 
-    
     const renderAnnouncementList = () => {
         if(loading) return <p>Chargement</p>
         return (
@@ -70,33 +73,13 @@ const Dashboard = () => {
                             <div className="col col-1" data-label="Job Id">{item.id}</div>
                             <div className="col col-2" data-label="Customer Name">{item.title}</div>
                             <div className="col col-3" data-label="Amount">
-                                <img src={Slide1} className="img-fluid" style={{height : '70px',width: '100px'}}/>
+                                <img src={`${baseUrl}announcement/pictures/${item.image}`} className="img-fluid" style={{height : '70px',width: '100px'}}/>
                             </div>
                             <div className="col col-2" data-label="Customer Name">
-                                <i className='fa fa-trash mr-3' style={{cursor : 'pointer'}} onClick={()=>deleteItem(item)}></i>
-                                <i className='fa fa-edit'></i>
+                                <i className='fa fa-trash mr-3' style={{cursor : 'pointer'}} onClick={() => deleteItem(item)}></i>
+                                <i className='fa fa-edit' style={{cursor : 'pointer'}} onClick={ () => updateItem(item) } ></i>
                             </div>
                         </li>
-
-                        {/* <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div className="modal-dialog modal-dialog-centered" role="document">
-                            <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                ...
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary" onClick={()=>deleteItem(item.id)}>Save changes</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div> */}
                     </React.Fragment>
                     )
                 })}
@@ -132,7 +115,14 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="container">
-                <h2>Liste des annonces</h2>
+                <div className='row'>
+                    <div className='col-md-6'>
+                        <h2>Liste des annonces</h2>
+                    </div>
+                    <div className='col-md-6 text-right'>
+                        <button className='btn btn-a' onClick={createAnnouncement}>Créer une annonce</button>
+                    </div>
+                </div>
                 {renderAnnouncementList()} 
             </div>
             <Footer/>

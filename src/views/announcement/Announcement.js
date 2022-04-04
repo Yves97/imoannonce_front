@@ -5,6 +5,7 @@ import {Footer} from '../../components/Footer'
 import Slide1 from '../../assets/images/slide-1.jpg'
 
 import { getAnnouncements } from "../../services/announcements";
+import { baseUrl } from "../../config/base/baseUrl";
 
 const Announcement = () => {
     const [loading,setLoading] = useState(false)
@@ -37,20 +38,17 @@ const Announcement = () => {
             return <React.Fragment>
                 {announcements.map((item,index)=>{
                     return <div className="col-md-4 mb-5" key={index}>
-                    <Link to={`/announcement/${item.id}`}>
-                        <div className="card-box-b card-shadow news-box">
-                            <div className="img-box-b">
-                                <img src={Slide1} alt="" className="img-b img-fluid"/>
-                            </div>
-                            <div className="card-overlay  p-3">
-                                <div className="card-header-b">
-                                    <h3>{item.title}</h3>
-                                    <p>{item.description}</p>
-                                    <p>publié  le {item.createDate}</p>
+                        <Link to={`/announcement/${item.id}`} >
+                            <div className="main-item-box" style={{backgroundImage: `url(${baseUrl}announcement/pictures/${item.image})`,backgroundSize: 'cover',backgroundRepeat : 'no-repeat'}}>
+                                <div className="item-box">
+                                    <div>
+                                        <h3>{item.title}</h3>
+                                        <p>{item.description}</p>
+                                        <p>publié le {item.createDate}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
                 </div>
                 })} 
             </React.Fragment>
@@ -73,10 +71,7 @@ const Announcement = () => {
                                                 <h1 className="intro-title mb-4">
                                                     <span className="color-b">Decouvrez les annonces</span>
                                                 </h1>
-                                                <i className="fa fa-arrow-down"></i>
-                                                {/* <p className="intro-subtitle intro-price">
-                                                    <a href="#"><span className="price-a">Commencer</span></a>
-                                                </p> */}
+                                                <i className="fa fa-arrow-down bottom-fa"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +82,7 @@ const Announcement = () => {
                 </div>
             </div>
             <div className="container mb-5 mt-5">
-                <h1>Notre liste</h1>
+                <h1 className="list-title">Notre liste</h1>
                 <div className="row">
                     {renderAnnonces()}
                 </div>

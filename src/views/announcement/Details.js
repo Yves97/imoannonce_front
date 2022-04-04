@@ -2,9 +2,9 @@ import React, {useEffect,useState} from 'react'
 import {Header} from '../../components/Header'
 import {Footer} from '../../components/Footer'
 import { Link } from 'react-router-dom'
-import Slide3 from '../../assets/images/slide-3.jpg'
 import { useParams } from 'react-router-dom'
 import { getAnnouncement } from '../../services/announcements'
+import { baseUrl } from '../../config/base/baseUrl'
 
 const Details = () => {
 
@@ -16,7 +16,6 @@ const Details = () => {
         async function announcement(){
             try{
                 const response = await getAnnouncement(id)
-                console.log(response)
                 if(response.ok){
                     const data = await response.json()
                     setAnnouncement(data.data)
@@ -35,7 +34,7 @@ const Details = () => {
         if(!announcement){
             return (
                 <div className='container mb-5 mt-5' style={{height : '50vh',display: 'flex',justifyContent : 'center',alignItems : 'center'}}>
-                    <p>Utilisateur non trouvé</p>
+                    <p>Annonce non trouvé</p>
                 </div>
             )
         }
@@ -53,12 +52,9 @@ const Details = () => {
                             <div className="col-md-12 col-lg-4">
                                 <nav aria-label="breadcrumb" className="breadcrumb-box d-flex justify-content-lg-end">
                                     <ol className="breadcrumb">
-                                    <li className="breadcrumb-item">
-                                        <Link to="/">Acceuil</Link>
-                                    </li>
-                                    <li className="breadcrumb-item">
-                                        <a href="property-grid.html">Properties</a>
-                                    </li>
+                                        <li className="breadcrumb-item">
+                                            <Link to="/">Acceuil</Link>
+                                        </li>
                                     </ol>
                                 </nav>
                             </div>
@@ -67,7 +63,7 @@ const Details = () => {
                 </section>
                 <section className='main-single'>
                     <div className='container'>
-                        <img src={Slide3} className="img-details img-fluid"  />
+                        <img src={`${baseUrl}announcement/pictures/${announcement.image}`} className="img-details img-fluid"  />
                         <div className="row mt-5 mb-5">
                             <div className="col-md-12">
                                 <div className="title-box-d">

@@ -1,7 +1,7 @@
 /*======================================
 //--//-->   STYLES GENERALES
 ======================================*/
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -107,7 +107,7 @@ a:hover {
   justify-content: space-between;
 }
 .responsive-table .table-header {
-  background-color: #95A5A6;
+  background-color: #26a356;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -128,6 +128,50 @@ a:hover {
 .responsive-table .col-4 {
   flex-basis: 25%;
 }
+
+.update-img{
+  height : 250px;
+  width : 100%;
+  object-fit: contain;
+}
+.main-item-box{
+  height: 300px;
+  position: relative;
+  padding : 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.item-box{
+  background-color: rgba(0, 0, 0, 0.548);
+}
+
+.item-box div{
+  padding : 10px
+}
+.item-box div h3{
+  font-size: 20px;
+  color: rgb(231, 222, 222);
+  font-weight: bold;
+}
+.item-box div p {
+  margin-bottom: 7px;
+  color: #fff;
+}
+.img-details{
+  height: 50vh;
+  width: 100%;
+  object-fit: fill;
+}
+.bottom-fa{
+  background: #26a356;
+  padding: 30px;
+  border: none;
+  border-radius: 25%;
+  font-size: 25px;
+}
+
 @media all and (max-width: 767px) {
   .responsive-table .table-header {
     display: none;
